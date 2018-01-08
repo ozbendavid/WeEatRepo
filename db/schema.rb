@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 20180108114505) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
-    t.integer "cuisine"
+    t.string "cuisine"
     t.integer "rating"
     t.boolean "accepts_10bis"
-    t.decimal "location_latitude"
-    t.decimal "location_longitude"
+    t.decimal "location_latitude", precision: 15, scale: 10
+    t.decimal "location_longitude", precision: 15, scale: 10
     t.integer "max_delivery_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
