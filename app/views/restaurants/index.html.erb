@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Cuisine</th>
       <th>Rating</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
+        <td><%= restaurant.id %></td>
         <td><%= restaurant.name %></td>
         <td><%= restaurant.cuisine %></td>
         <td><%= restaurant.rating %></td>
