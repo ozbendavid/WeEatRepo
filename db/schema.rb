@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180108150543) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "cuisine"
-    t.integer "rating"
+    t.decimal "rating"
     t.boolean "accepts_10bis"
     t.decimal "location_latitude", precision: 15, scale: 10
     t.decimal "location_longitude", precision: 15, scale: 10
