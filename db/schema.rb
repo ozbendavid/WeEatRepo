@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180108150543) do
     t.string "name"
     t.string "cuisine"
     t.decimal "rating"
-    t.boolean "accepts_10bis"
+    t.boolean "accepts_ten_bis"
     t.decimal "location_latitude", precision: 15, scale: 10
     t.decimal "location_longitude", precision: 15, scale: 10
     t.integer "max_delivery_time"

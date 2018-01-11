@@ -4,7 +4,7 @@ one:
   name: MyString
   cuisine: 1
   rating: 1
-  accepts_10bis: false
+  accepts_ten_bis: false
   location_latitude: 9.99
   location_longitude: 9.99
   max_delivery_time: 1
@@ -13,7 +13,7 @@ two:
   name: MyString
   cuisine: 1
   rating: 1
-  accepts_10bis: false
+  accepts_ten_bis: false
   location_latitude: 9.99
   location_longitude: 9.99
   max_delivery_time: 1

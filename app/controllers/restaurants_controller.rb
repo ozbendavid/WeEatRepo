@@ -71,7 +71,7 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name,
                                        :cuisine,
                                        :rating,
-                                       :accepts_10bis,
+                                       :accepts_ten_bis,
                                        :location_latitude,
                                        :location_longitude,
                                        :max_delivery_time)

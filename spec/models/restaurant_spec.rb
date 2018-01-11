@@ -6,11 +6,13 @@ RSpec.describe Restaurant, type: :model do
 
     it "is default 0 after creation" do
       restaurant = FactoryBot.create(:italian_restaurant)
+      puts restaurant
       expect(restaurant.rating).to eq 0
     end
 
     it "updates after review creation" do
       good_review = FactoryBot.create(:italian_restaurant_good_review)
+      puts
       expect(good_review.restaurant.rating).to eq good_review.rating
     end
 
