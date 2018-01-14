@@ -1,3 +1,4 @@
+require 'zomato_data_grabbing_worker.rb'
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i(show edit update destroy)
 
@@ -57,6 +58,10 @@ class RestaurantsController < ApplicationController
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def load_data
+    ZomatoDataGrabbingWorker.perform_async
   end
 
   private
