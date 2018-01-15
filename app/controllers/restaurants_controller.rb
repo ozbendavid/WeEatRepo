@@ -1,4 +1,3 @@
-require 'zomato_data_grabbing_worker.rb'
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i(show edit update destroy)
 
