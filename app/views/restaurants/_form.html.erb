@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :accepts_10bis %>
-    <%= form.check_box :accepts_10bis, id: :restaurant_accepts_10bis %>
+    <%= form.label :accepts_ten_bis %>
+    <%= form.check_box :accepts_ten_bis, id: :restaurant_accepts_ten_bis %>
   </div>
 
   <div class="field">
@@ -39,6 +39,10 @@
   <div class="field">
     <%= form.label :max_delivery_time %>
     <%= form.number_field :max_delivery_time, id: :restaurant_max_delivery_time %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :rating, value: 0 %>
   </div>
 
   <div class="actions">

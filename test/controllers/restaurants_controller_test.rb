@@ -17,7 +17,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create restaurant' do
     assert_difference('Restaurant.count') do
-      post restaurants_url, params: { restaurant: { accepts_10bis: @restaurant.accepts_10bis,
+      post restaurants_url, params: { restaurant: { accepts_ten_bis: @restaurant.accepts_ten_bis,
                                                     cuisine: @restaurant.cuisine,
                                                     location_latitude: @restaurant.location_latitude,
                                                     location_longitude: @restaurant.location_longitude,
@@ -40,7 +40,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update restaurant' do
-    patch restaurant_url(@restaurant), params: { restaurant: { accepts_10bis: @restaurant.accepts_10bis,
+    patch restaurant_url(@restaurant), params: { restaurant: { accepts_ten_bis: @restaurant.accepts_ten_bis,
                                                                cuisine: @restaurant.cuisine,
                                                                location_latitude: @restaurant.location_latitude,
                                                                location_longitude: @restaurant.location_longitude,

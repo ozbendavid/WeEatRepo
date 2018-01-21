@@ -1,7 +1,4 @@
 class Restaurant < ApplicationRecord
-
-  attr_accessor :rating, :name
-
   has_many :reviews, dependent: :destroy
 
   validates :name,
@@ -13,7 +10,7 @@ class Restaurant < ApplicationRecord
 
   validates :rating, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 3}
 
-  after_initialize :initialize_defaults
+  after_initialize :update_defaults
 
   def update_rating
     average_rating = reviews.average(:rating) || 0
@@ -22,9 +19,7 @@ class Restaurant < ApplicationRecord
 
   private
 
-  def initialize_defaults
+  def update_defaults
     @rating ||= 0
-    @accepts_10bis ||= false
   end
-
 end
