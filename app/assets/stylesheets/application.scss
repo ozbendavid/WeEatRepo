@@ -1,0 +1,46 @@
+@import "bootstrap";
+
+header {
+  color: white;
+  background: image-url('header.jpg') no-repeat;
+  border: 2px dotted aquamarine;
+}
+
+h4 {
+  font-style: italic;
+}
+
+.selection-filters {
+  background-color: #cc2200;
+}
+
+.selection-filter {
+  margin-right: 20px;
+  padding: 10px;
+  border: 2px dotted aquamarine;
+}
+
+.restaurant-list {
+  border: 2px dotted green;
+}
+
+.restaurant-item {
+  border: 2px dotted blue;
+}
+
+.map {
+  border: 2px dotted aquamarine;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

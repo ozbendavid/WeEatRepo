@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'main_app', to: 'main_app#index'
   resources :reviews
   root 'restaurants#index', as: 'restaurant_index'
   resources :restaurants

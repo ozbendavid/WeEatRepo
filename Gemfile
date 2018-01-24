@@ -62,3 +62,9 @@ gem 'rubocop', require: false
 gem 'faraday'
 gem 'faraday_middleware'
 gem 'react_on_rails', '10.0.2'
+
+gem 'mini_racer', platforms: :ruby
+
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+
