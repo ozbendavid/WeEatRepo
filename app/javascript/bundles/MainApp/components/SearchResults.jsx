@@ -2,23 +2,28 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import RestaurantsList from './RestaurantsList';
 import RestaurantsMap from './RestaurantsMap';
+import AggregatedFilter from './AggregatedFilter';
 
 export default class SearchResults extends React.Component {
-
-  /**
-   * @param props - Comes from your rails view.
-   */
   constructor(props) {
     super(props);
+  }
 
+  filteredRestaurants = () => {
+    return this.props.restaurants.filter(restaurant => this.props.filters.isPassingFilter(restaurant)).slice(0,9);
   }
 
   render() {
     return (
-      <div className="row">
-        <RestaurantsList />
-        <RestaurantsMap />
+      <div className="row justify-content-md-center">
+        <RestaurantsList restaurants={this.filteredRestaurants()}/>
+        <RestaurantsMap isMarkerShown={true}/>
       </div>
     );
   }
 }
+
+SearchResults.propTypes = {
+  filters: PropTypes.instanceOf(AggregatedFilter),
+  restaurants: PropTypes.array.isRequired,
+};

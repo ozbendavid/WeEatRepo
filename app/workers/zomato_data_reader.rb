@@ -10,7 +10,7 @@ class ZomatoDataReader
     end
   end
 
-  def fetch_restaurants_list(number_of_restaurants = 2, city_id = 280)
+  def fetch_restaurants_list(number_of_restaurants = 100, city_id = 280)
     response = get_restaurants(number_of_restaurants, city_id)
     restaurants_info = JSON.parse(response.body)['restaurants']
     restaurants_info.map {|r| r['restaurant']}
