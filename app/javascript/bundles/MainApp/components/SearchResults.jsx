@@ -7,17 +7,24 @@ import AggregatedFilter from './AggregatedFilter';
 export default class SearchResults extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { selectedRestaurant: { id: 'none' } };
   }
 
   filteredRestaurants = () => {
-    return this.props.restaurants.filter(restaurant => this.props.filters.isPassingFilter(restaurant)).slice(0,9);
+    return this.props.restaurants.filter(restaurant => this.props.filters.isPassingFilter(restaurant)).slice(0, 9);
+  }
+
+  handleRestaurantSelected = (restaurant) => {
+    this.setState({ selectedRestaurant: restaurant });
   }
 
   render() {
     return (
       <div className="row justify-content-md-center">
-        <RestaurantsList restaurants={this.filteredRestaurants()}/>
-        <RestaurantsMap isMarkerShown={true}/>
+        <RestaurantsList restaurants={this.filteredRestaurants()}
+          onRestaurantSelected={this.handleRestaurantSelected}
+          selectedRestaurant={this.state.selectedRestaurant}/>
+        <RestaurantsMap selectedRestaurant={this.state.selectedRestaurant}/>
       </div>
     );
   }

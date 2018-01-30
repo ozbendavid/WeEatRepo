@@ -11,14 +11,18 @@ export default class RestaurantItem extends React.Component {
     return String.fromCharCode((cuisine in RestaurantItem.cuisines) ? RestaurantItem.cuisines[cuisine] : 102);
   };
 
+  handleOnClick = (item, e) => {
+    this.props.onRestaurantSelected(item);
+  };
+
   render() {
     let restaurant = this.props.restaurant;
-    let tenBisimage = restaurant.accepts_ten_bis ?
-      <img className="ten-bis-logo"
-        src="/assets/ten_bis-5cbb8a298e8f44bf400826012bd7981cd6209e724cbdbf37c1821cf8a5e61338.png"
-        title="We accept 10bis :)"/> : '';
+    let tenbis = restaurant.accepts_ten_bis ?
+      <span className="col-md-2 restaurant-detail ten-bis-logo" title="We accept 10bis :)"/> : '';
 
-    return <li className="restaurant-item list-group-item">
+    let selectedClass = this.props.isSelected ? ' selected-restaurant' : '';
+
+    return <li className={"restaurant-item list-group-item"+selectedClass} onClick={this.handleOnClick.bind(this, restaurant)}>
       <div className="row">
         <span className="col-md-12 restaurant-name">{restaurant.name}</span>
       </div>
@@ -42,9 +46,7 @@ export default class RestaurantItem extends React.Component {
           <span className="col-md-4 restaurant-detail">
           ~{restaurant.max_delivery_time} min
           </span>
-          <span className="col-md-2 restaurant-detail">
-            {tenBisimage}
-          </span>
+          {tenbis}
         </span>
       </div>
     </li>;
@@ -53,6 +55,8 @@ export default class RestaurantItem extends React.Component {
 
 RestaurantItem.propTypes = {
   restaurant: PropTypes.object.isRequired,
+  onRestaurantSelected: PropTypes.func.isRequired,
+  isSelected: PropTypes.bool.isRequired,
 };
 
 RestaurantItem.cuisines = {

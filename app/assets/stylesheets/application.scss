@@ -19,10 +19,12 @@ $rest-item-margin: 25px;
 $rounded-corner: 0.25rem;
 $border-color: #dfdfdf;
 $cuisine-logo-size: 25px;
-$item-hover-color: #cce0c1;
+$item-hover-color: #ffb347;
 $selection-filter-padding: 20px;
 $google-map-height: 450px;
-
+$tenbis-background-image: 'ten_bis.png';
+$tenbis-ratio: 60%;
+$selected-restaurant-color: #fdfd96;
 
 @font-face {
   font-family: 'Cuisines Regular Webfont';
@@ -83,7 +85,9 @@ footer {
 }
 
 .ten-bis-logo {
-  width: $ten-bis-logo-size;
+  background: image-url($tenbis-background-image);
+  background-repeat:no-repeat;
+  background-size: $tenbis-ratio;
 }
 
 li:hover {
@@ -110,6 +114,10 @@ li:hover {
 .cuisine {
   font-family: 'Cuisines Regular Webfont', Verdana, Geneva, sans-serif;
   font-size: $cuisine-logo-size;
+}
+
+.selected-restaurant {
+  background-color: $selected-restaurant-color;
 }
 
 // For pretty search box
