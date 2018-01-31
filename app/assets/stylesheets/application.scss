@@ -1,0 +1,179 @@
+@import "bootstrap";
+
+$no-padding: 0px;
+$margin: 20px;
+$padding: 10px;
+$big-margin: 40px;
+$border-width: 1px;
+$border-style: none;
+$selection-background: #cc2200;
+$footer-background: lightgrey;
+$search-grey: #a0a0a0;
+$search-grey-shadow: #c0c0c0;
+$header-big-text: 56px;
+$header-background-image: 'header.jpg';
+$magnifying-glass-top: 20px;
+$magnifying-glass-left: 25px;
+$ten-bis-logo-size: 25px;
+$rest-item-margin: 25px;
+$rounded-corner: 0.25rem;
+$border-color: #dfdfdf;
+$cuisine-logo-size: 25px;
+$item-hover-color: #ffb347;
+$selection-filter-padding: 20px;
+$google-map-height: 450px;
+$tenbis-background-image: 'ten_bis.png';
+$tenbis-ratio: 60%;
+$selected-restaurant-color: #fdfd96;
+$info-box-opacity: 0.75;
+$info-box-padding: 12px;
+$info-box-font-size: 16px;
+$info-box-text-color: #08233B;
+$full: 100%;
+$map-container-height: 450px;
+
+@font-face {
+  font-family: 'Cuisines Regular Webfont';
+  src: font-url('efcuisines-regular-webfont.eot');
+  src: font-url('efcuisines-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  font-url('efcuisines-regular-webfont.ttf') format('truetype'),
+  font-url('efcuisines-regular-webfont.woff') format('woff'),
+  font-url('efcuisines-regular-webfont.svg#efcuisines-regular-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Arial Rounded MT Bold", Verdana, Geneva, sans-serif;
+}
+
+div {
+  .container-fluid {
+    padding: $no-padding;
+  }
+}
+
+header {
+  color: white;
+  background: image-url($header-background-image) no-repeat center 0px;
+}
+
+h1 {
+  margin-top: $big-margin;
+  margin-bottom: $margin;
+  font-size: $header-big-text;
+}
+
+h4 {
+  font-style: italic;
+  margin-bottom: $big-margin;
+}
+
+main {
+  padding-top: $padding;
+}
+
+.selection-filters {
+  background-color: $selection-background;
+}
+
+.selection-filter {
+  padding: $selection-filter-padding;
+}
+
+.selection-text-filter {
+  margin-bottom: $big-margin;
+  padding: $padding;
+}
+
+footer {
+  background-color: $footer-background;
+}
+
+.ten-bis-logo {
+  background: image-url($tenbis-background-image);
+  background-repeat:no-repeat;
+  background-size: $tenbis-ratio;
+}
+
+li:hover {
+  .row {
+    background-color: $item-hover-color;
+  }
+}
+
+.restaurant-detail {
+}
+
+.restaurant-name {
+  font-weight: bold;
+}
+
+.map {
+  border-radius: $rounded-corner;
+  border: $border-width solid $border-color;
+  padding: $padding;
+  margin-bottom: $margin;
+  height: $google-map-height + 2 * $padding;
+}
+
+.cuisine {
+  font-family: 'Cuisines Regular Webfont', Verdana, Geneva, sans-serif;
+  font-size: $cuisine-logo-size;
+}
+
+.selected-restaurant {
+  background-color: $selected-restaurant-color;
+}
+
+.info-box-outer {
+  background-color: $selected-restaurant-color;
+  opacity: $info-box-opacity;
+  padding: $info-box-padding;
+}
+
+.info-box-inner {
+  font-size: $info-box-font-size;
+  color: $info-box-text-color;
+}
+
+.full-height {
+  height: $full;
+}
+
+.map-container-element-height {
+  height: $map-container-height;
+}
+
+// For pretty search box
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+.search {
+  position: relative;
+  color: $search-grey;
+
+  .fa-search {
+    position: absolute;
+    top: $magnifying-glass-top;
+    left: $magnifying-glass-left;
+  }
+
+  input {
+    width: $full;
+    text-indent: $magnifying-glass-left;
+  }
+}
+
+// end
+
+
+
+
+
+
+
+
+
+
+
