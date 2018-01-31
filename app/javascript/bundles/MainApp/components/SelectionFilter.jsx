@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Filter from './Filter';
 
-
 export default class SelectionFilter extends React.Component {
   constructor(props) {
     super(props);
@@ -10,14 +9,16 @@ export default class SelectionFilter extends React.Component {
 
   handleChange = (e) => {
     this.props.onFilterChange(this.props.filter, e.target.value);
-  }
+  };
 
   render() {
     return (
-      <span className={"col-md-3 text-center selection-filter"}>
+      <span className={'col-md-3 text-center selection-filter'}>
         <label>{this.props.title}</label>
         <select className="form-control" value={this.props.filter.currentFilterValue} onChange={this.handleChange}>
           {this.props.items.map((item, index) =>
+            // TBD : Fix this after moving Cuisines to be on a model of its own
+            // since Cuisine is the only obstacle
             <option key={index} value={item}>{item}</option>,
           )}
         </select>

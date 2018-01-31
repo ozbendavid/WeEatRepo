@@ -5,8 +5,8 @@ import SelectionFilter from './SelectionFilter';
 import AggregatedFilter from './AggregatedFilter';
 
 export default class AppHeader extends React.Component {
-  static minimalRatings = [1, 2, 3];
-  static deliveryTimes = [15, 30, 45, 60, 75, 90, 105, 120];
+  static minimalRatings = Array(3).fill(0).map((e, i) => i + 1);
+  static deliveryTimes = Array(8).fill(0).map((e, i) => 15 + i * 15);
 
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ export default class AppHeader extends React.Component {
 
   onFilterChanged = (filter, newFilterValue) => {
     this.props.onFilterChange(filter, newFilterValue);
-  }
+  };
 
   render() {
     return <header>

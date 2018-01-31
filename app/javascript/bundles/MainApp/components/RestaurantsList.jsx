@@ -9,7 +9,7 @@ export default class RestaurantsList extends React.Component {
 
   handleRestaurantSelected = (restaurant) => {
     this.props.onRestaurantSelected(restaurant);
-  }
+  };
 
   render() {
     const restaurantsList = this.props.restaurants.map((restaurant) =>

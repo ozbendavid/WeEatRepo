@@ -6,11 +6,12 @@ import AggregatedFilter from './AggregatedFilter';
 import Filter from './Filter';
 
 export default class MainApp extends React.Component {
-  static restaurantsUrl = 'http://localhost:3000/restaurants.json';
+  // Using the webpack EnvironmentPlugin to expose RESTAURANTS_API_URL environment variable
+  static restaurantsUrl = process.env.RESTAURANTS_API_URL+'/restaurants.json';
 
   static generateInitialFilter() {
-    let filter = new AggregatedFilter();
-    filter.addFilter(new Filter(1, 'name', '', function (filter, name) {
+    let aggregatedFilter = new AggregatedFilter();
+    aggregatedFilter.addFilter(new Filter(1, 'name', '', function (filter, name) {
       return name.toLowerCase().indexOf(filter.toLowerCase()) !== -1;
     }
     )).addFilter(new Filter(2, 'cuisine', 'What ever...', function (filter, cuisine) {
@@ -21,7 +22,7 @@ export default class MainApp extends React.Component {
     })).addFilter(new Filter(4, 'max_delivery_time', 'I\'m in no rush...', function (filter, deliveryTime) {
       return deliveryTime <= filter;
     }));
-    return filter;
+    return aggregatedFilter;
   }
 
   constructor(props) {
@@ -34,7 +35,7 @@ export default class MainApp extends React.Component {
     fetch(MainApp.restaurantsUrl)
       .then((response) => response.json())
       .then((response) => {
-        let uniqueCuisines = Array.from(new Set(response.map(item => item.cuisine)));
+        let uniqueCuisines = Array.from(new Set(response.map(item => item.cuisine))).sort();
         this.setState({
           restaurants: response,
           uniqueCuisines: uniqueCuisines,
@@ -43,9 +44,9 @@ export default class MainApp extends React.Component {
   }
 
   handleFilterChange = (filter, newFilterValue) => {
-    this.filters.filter[filter.id].currentFilterValue = newFilterValue;
+    this.filters.filter[filter.id].filterValue = newFilterValue;
     this.setState({ filters: this.filters });
-  }
+  };
 
   render() {
     return (

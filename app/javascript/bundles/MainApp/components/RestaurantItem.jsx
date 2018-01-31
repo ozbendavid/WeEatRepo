@@ -2,6 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import StarRatings from 'react-star-ratings';
 
+/**
+ * Contains one restaurant item in the RestaurantsList
+ */
 export default class RestaurantItem extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +25,8 @@ export default class RestaurantItem extends React.Component {
 
     let selectedClass = this.props.isSelected ? ' selected-restaurant' : '';
 
-    return <li className={"restaurant-item list-group-item"+selectedClass} onClick={this.handleOnClick.bind(this, restaurant)}>
+    return <li className={'restaurant-item list-group-item' + selectedClass}
+      onClick={this.handleOnClick.bind(this, restaurant)}>
       <div className="row">
         <span className="col-md-12 restaurant-name">{restaurant.name}</span>
       </div>
@@ -59,6 +63,10 @@ RestaurantItem.propTypes = {
   isSelected: PropTypes.bool.isRequired,
 };
 
+/**
+ * Mapping between cuisine to the appropriate sign in the efcuisines-regular-webfont font
+ * TBD : Cuisines should be moved to a Model of its own
+ */
 RestaurantItem.cuisines = {
   Sandwich: 56,
   Steak: 51,
@@ -74,4 +82,3 @@ RestaurantItem.cuisines = {
   Desserts: 108,
   Bakery: 69,
 };
-

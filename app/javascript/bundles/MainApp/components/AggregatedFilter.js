@@ -1,3 +1,8 @@
+/**
+ * General filters aggregation
+ * Use addFilter to add filters of type Filter
+ * Use isPassingFilter with the object you want to check if it passes all the filters
+ */
 export default class AggregatedFilter {
   constructor() {
     this.filter = {};
@@ -11,8 +16,10 @@ export default class AggregatedFilter {
   isPassingFilter(data) {
     for (let key in this.filter) {
       let filter = this.filter[key];
-      if (!(filter.isPassingFilter(data[filter.field]))) {
-        return false;
+      if (filter.field in data) {
+        if (!(filter.isPassingFilter(data[filter.field]))) {
+          return false;
+        }
       }
     }
     return true;

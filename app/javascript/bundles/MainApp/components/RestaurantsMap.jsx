@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+
 const { InfoBox } = require('react-google-maps/lib/components/addons/InfoBox');
 
 const GoogleAPIBaseUrl = 'https://maps.googleapis.com';
@@ -20,8 +21,8 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
       lng: parseFloat(props.selectedLocation.location_longitude),
     }}>
       <InfoBox>
-        <div style={{ backgroundColor: '#fdfd96', opacity: 0.75, padding: '12px' }}>
-          <div style={{ fontSize: '16px', fontColor: '#08233B' }}>
+        <div className="info-box-outer">
+          <div className="info-box-inner">
             {props.selectedLocation.name}
           </div>
         </div>
@@ -39,9 +40,9 @@ export default class RestaurantsMap extends React.Component {
     return <div className="col-md-6 map">
       <MyMapComponent selectedLocation={this.props.selectedRestaurant}
         googleMapURL={GoogleAPIFullUrl}
-        loadingElement={<div style={{ height: '100%' }}/>}
-        containerElement={<div style={{ height: '450px' }}/>}
-        mapElement={<div style={{ height: '100%' }}/>}/>
+        loadingElement={<div className="full-height"/>}
+        containerElement={<div className="map-container-element-height"/>}
+        mapElement={<div className="full-height"/>}/>
     </div>;
   }
 }

@@ -12,20 +12,18 @@ export default class TextFilter extends React.Component {
   };
 
   render() {
-    return (
-      <div className="row justify-content-md-center">
-        <div className="col-md-4">
-          <div className="search selection-text-filter">
-            <span className="fa fa-search"/>
-            <input type="text"
-              className="form-control"
-              value={this.props.filter.currentFilterValue}
-              onChange={this.handleChange}
-              placeholder="Looking for something special?"/>
-          </div>
+    return <div className="row justify-content-md-center">
+      <div className="col-md-4">
+        <div className="search selection-text-filter">
+          <span className="fa fa-search"/>
+          <input type="text"
+            className="form-control"
+            value={this.props.filter.currentFilterValue}
+            onChange={this.handleChange}
+            placeholder="Looking for something special?"/>
         </div>
       </div>
-    );
+    </div>;
   }
 }
 

@@ -12,11 +12,11 @@ export default class SearchResults extends React.Component {
 
   filteredRestaurants = () => {
     return this.props.restaurants.filter(restaurant => this.props.filters.isPassingFilter(restaurant)).slice(0, 9);
-  }
+  };
 
   handleRestaurantSelected = (restaurant) => {
     this.setState({ selectedRestaurant: restaurant });
-  }
+  };
 
   render() {
     return (
