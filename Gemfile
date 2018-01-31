@@ -43,7 +43,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'sidekiq'
 end
 
 group :development do
@@ -67,4 +66,5 @@ gem 'mini_racer', platforms: :ruby
 
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'sidekiq'
 
