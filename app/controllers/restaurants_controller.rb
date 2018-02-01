@@ -60,7 +60,9 @@ class RestaurantsController < ApplicationController
   end
 
   def load_data
-    ZomatoDataGrabbingWorker.perform
+    worker = ZomatoDataGrabbingWorker.new
+    worker.perform
+    redirect_to restaurants_url
   end
 
   private
