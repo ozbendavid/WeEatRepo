@@ -60,7 +60,7 @@ class RestaurantsController < ApplicationController
   end
 
   def load_data
-    ZomatoDataGrabbingWorker.perform_async
+    ZomatoDataGrabbingWorker.perform
   end
 
   private
